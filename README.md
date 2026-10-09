@@ -2,24 +2,24 @@
 
 ---
 
-### Project Description
+### Описание проекта
 
-This is a simple console application for booking movie tickets.
+Данный проект представляет собой простую консольную систему бронирования билетов в кинотеатр.
 
-The user can:
+Пользователь может:
 
-- Register
-- Log in
-- View available movies
-- Book a ticket
-- Make a payment
-- View booking history
+- Зарегистрироваться
+- Авторизоваться
+- Посмотреть список фильмов
+- Забронировать билет
+- Выполнить оплату
+- Посмотреть историю своих бронирований
 
-The project was created using OOP principles in Java.
+Проект написан на Java с использованием принципов ООП.
 
 ---
 
-### Project Structure
+### Структура проекта
 
 ```text
 src
@@ -48,13 +48,13 @@ src
 
 ---
 
-### OOP Concepts Used
+### Что используется в проекте
 
-#### Encapsulation
+#### Инкапсуляция
 
-Private fields with public getters.
+Поля классов сделаны `private`, доступ к ним происходит через методы.
 
-Example:
+Пример:
 
 ```java
 private String username;
@@ -63,16 +63,22 @@ private String password;
 
 ---
 
-#### Inheritance
+#### Наследование
+
+Классы:
 
 ```java
 Customer extends User
 Admin extends User
 ```
 
+наследуются от общего класса User.
+
 ---
 
-#### Abstraction
+#### Абстракция
+
+Используется абстрактный класс:
 
 ```java
 public abstract class User
@@ -80,7 +86,9 @@ public abstract class User
 
 ---
 
-#### Polymorphism
+#### Полиморфизм
+
+Пример:
 
 ```java
 User user = authService.login(...);
@@ -88,7 +96,9 @@ User user = authService.login(...);
 
 ---
 
-#### Method Overriding
+#### Переопределение методов (Override)
+
+Пример:
 
 ```java
 @Override
@@ -97,22 +107,22 @@ public void showRole()
 
 ---
 
-### Additional Concepts
+### Дополнительно используются
 
-- Association
-- Aggregation
-- Composition
-- Dependency
-- Custom Exception
 - Scanner
 - ArrayList
+- Исключения (Exception)
+- Ассоциация
+- Агрегация
+- Композиция
+- Зависимость
 
 ---
 
-### How To Run
+### Как запустить проект
 
-1. Open the project in IntelliJ IDEA.
-2. Create the folders:
+1. Открыть проект в IntelliJ IDEA.
+2. Создать пакеты:
 
 ```text
 models
@@ -120,8 +130,8 @@ services
 exceptions
 ```
 
-3. Add all Java files to their corresponding packages.
-4. Run:
+3. Добавить все классы в соответствующие пакеты.
+4. Запустить файл:
 
 ```java
 Main.java
@@ -129,29 +139,27 @@ Main.java
 
 ---
 
-### Test Scenario
+### Как проверить работу программы
 
-#### Register
+После запуска программа попросит зарегистрироваться.
 
-Example:
+Пример:
 
 ```text
-Register login: test
+Register login: ali
 Register password: 123
 ```
 
----
+После этого нужно авторизоваться.
 
-#### Login
-
-Example:
+Пример:
 
 ```text
-Login: test
+Login: ali
 Password: 123
 ```
 
-Expected result:
+Если данные введены правильно, появится сообщение:
 
 ```text
 Authorization successful!
@@ -159,9 +167,9 @@ Authorization successful!
 
 ---
 
-#### Show Movies
+### Главное меню
 
-Menu:
+После входа доступно меню:
 
 ```text
 1. Show movies
@@ -170,13 +178,17 @@ Menu:
 4. Exit
 ```
 
-Choose:
+---
+
+### Проверка списка фильмов
+
+Выбрать:
 
 ```text
 1
 ```
 
-Expected result:
+Ожидаемый результат:
 
 ```text
 1. Avatar
@@ -186,22 +198,22 @@ Expected result:
 
 ---
 
-#### Book Ticket
+### Проверка бронирования
 
-Choose:
+Выбрать:
 
 ```text
 2
 ```
 
-Example:
+Далее:
 
 ```text
 Choose movie: 1
 Choose seat: 5
 ```
 
-Expected result:
+Ожидаемый результат:
 
 ```text
 Payment successful: 3000.0
@@ -210,15 +222,15 @@ Ticket booked successfully!
 
 ---
 
-#### View Booking History
+### Проверка истории бронирований
 
-Choose:
+Выбрать:
 
 ```text
 3
 ```
 
-Expected result:
+Ожидаемый результат:
 
 ```text
 Movie: Avatar
@@ -229,15 +241,15 @@ Price: 3000.0
 
 ---
 
-### Exception Testing
+### Проверка обработки ошибок
 
-Choose a movie that does not exist:
+Попробовать выбрать фильм, которого нет:
 
 ```text
 Choose movie: 99
 ```
 
-Expected result:
+Результат:
 
 ```text
 Movie not found
@@ -245,13 +257,13 @@ Movie not found
 
 ---
 
-Choose an invalid seat:
+Попробовать указать неверное место:
 
 ```text
 Choose seat: -1
 ```
 
-Expected result:
+Результат:
 
 ```text
 Invalid seat
@@ -259,6 +271,6 @@ Invalid seat
 
 ---
 
-### Conclusion
+### Вывод
 
-The application demonstrates the use of Java OOP concepts, package organization, exception handling, user authorization, and ticket booking functionality in a simple console-based cinema management system.
+Проект демонстрирует работу основных принципов ООП в Java, работу с пакетами, обработку исключений, авторизацию пользователей и систему бронирования билетов через консольное приложение.
