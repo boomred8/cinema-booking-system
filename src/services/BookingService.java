@@ -4,80 +4,81 @@ import exceptions.CustomException;
 import models.*;
 
 import java.util.ArrayList;
-imp*rt java.util.Scanner;
+import java.util.Scanner;
 
-public clas* BookingService {
+public class BookingService {
 
-    private Sca*ner scanner = new Scanner(System.i*);
+    private Scanner scanner = new Scanner(System.in);
 
-    private AuthService authSe*vice = new AuthService();
+    private AuthService authService = new AuthService();
 
-    pri*ate Cinema cinema = new Cinema("Me*a Cinema");
+    private Cinema cinema = new Cinema("Mega Cinema");
 
-    private ArrayList*Booking> history = new ArrayList<>*);
+    private ArrayList<Booking> history = new ArrayList<>();
 
     public BookingService() {
-*        cinema.addMovie(new Movie(*Avatar"));
-        cinema.addMovie*new Movie("Batman"));
-        cine*a.addMovie(new Movie("Interstellar*));
+
+        cinema.addMovie(new Movie("Avatar"));
+        cinema.addMovie(new Movie("Batman"));
+        cinema.addMovie(new Movie("Interstellar"));
 
     }
 
-    public void start(* {
+    public void start() {
 
-        System.out.println("==* CINEMA BOOKING SYSTEM ===");
+        System.out.println("=== CINEMA BOOKING SYSTEM ===");
 
-   *    System.out.print("Register log*n: ");
-        String username = s*anner.nextLine();
+        System.out.print("Register login: ");
+        String username = scanner.nextLine();
 
-        System.*ut.print("Register password: ");
- *      String password = scanner.ne*tLine();
+        System.out.print("Register password: ");
+        String password = scanner.nextLine();
 
-        authService.regi*ter(username, password);
+        authService.register(username, password);
 
-        *ystem.out.println("\nLogin");
+        System.out.println("\nLogin");
 
-   *    System.out.print("Login: ");
- *      String login = scanner.nextL*ne();
+        System.out.print("Login: ");
+        String login = scanner.nextLine();
 
-        System.out.print("P*ssword: ");
-        String pass = *canner.nextLine();
+        System.out.print("Password: ");
+        String pass = scanner.nextLine();
 
-        User u*er = authService.login(login, pass*;
+        User user = authService.login(login, pass);
 
         if (user == null) {
-   *        System.out.println("Wrong *ogin or password!");
-            r*turn;
+            System.out.println("Wrong login or password!");
+            return;
         }
 
-        System.ou*.println("Authorization successful*");
+        System.out.println("Authorization successful!");
 
         menu();
     }
 
-    pr*vate void menu() {
+    private void menu() {
 
-        int ch*ice;
+        int choice;
 
         do {
 
-            Sy*tem.out.println("\n1. Show movies"*;
-            System.out.println("*. Book ticket");
-            Syste*.out.println("3. My bookings");
-  *         System.out.println("4. Ex*t");
+            System.out.println("\n1. Show movies");
+            System.out.println("2. Book ticket");
+            System.out.println("3. My bookings");
+            System.out.println("4. Exit");
 
-            choice = scanner*nextInt();
+            choice = scanner.nextInt();
 
-            switch (ch*ice) {
+            switch (choice) {
 
                 case 1:
-  *                 showMovies();
-   *                break;
+                    showMovies();
+                    break;
 
-          *     case 2:
+                case 2:
 
-                    *ry {
-                        bookT*cket();
+                    try {
+                        bookTicket();
                     } catch (CustomException e) {
                         System.out.println(e.getMessage());
                     }
